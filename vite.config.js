@@ -4,7 +4,7 @@ import path from 'path';
 const __dirname = path.resolve();
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/',
+  base: '/React-Weather',
   plugins: [react()],
   resolve: {
     alias: {

@@ -143,7 +143,7 @@ export default function Home() {
   return (
     <div
       className="app"
-      style={{ backgroundImage: `url(${bg || './bg.webp'})` }}
+      style={{ backgroundImage: `url(${bg || '/React-Weather/bg.webp'})` }}
     >
       <div className="app__container _container">
         <div className="app__body">
