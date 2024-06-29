@@ -20,7 +20,7 @@ async function fetchImages(query) {
     const data = await response.json();
     return data.items[0].link;
   } catch (error) {
-    // console.error('Error fetching images:', error);
+    return null;
   }
 }
 
@@ -42,54 +42,72 @@ export default function Home() {
 
   // get user coords
   useEffect(() => {
-    let userCorrds = {
-      lat: 0,
-      lon: 0,
-    };
+    let userCorrds = null;
 
-    navigator.geolocation.getCurrentPosition(function (position) {
-      userCorrds = {
-        lat: position.coords.latitude,
-        lon: position.coords.longitude,
-      };
-    });
+    function getUserCoords() {
+      return new Promise(res => {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          userCorrds = {
+            lat: position.coords.latitude,
+            lon: position.coords.longitude,
+          };
 
-    const query = {};
-    for (const [key, value] of firstSeachParams.current.entries()) {
-      query[key] = value;
+          res(userCorrds);
+        });
+      });
     }
 
-    if (query.city || (query.lon && query.lat)) {
-      if (query.lon && query.lat) {
-        setCoords({
-          lat: query.lat,
-          lon: query.lon,
-        });
-        return;
-      } else if (query.city) {
-        getCitiesCoords(query.city).then(cities => {
-          let minDistance = Infinity;
-          let indexClosest = null;
-          cities.forEach((c, index) => {
-            const distance = Math.sqrt(
-              Math.pow(userCorrds.lat - c.lat, 2) +
-                Math.pow(userCorrds.lon - c.lon, 2),
-            );
+    async function fetchData() {
+      await getUserCoords();
 
-            if (distance < minDistance) {
-              minDistance = distance;
-              indexClosest = index;
-            }
-          });
-          setCoords({
-            lat: cities[indexClosest].lat,
-            lon: cities[indexClosest].lon,
-          });
-        });
-        return;
+      const query = {};
+      for (const [key, value] of firstSeachParams.current.entries()) {
+        query[key] = value;
       }
-      return;
+
+      if (query.city || (query.lon && query.lat)) {
+        if (query.lon && query.lat) {
+          setCoords({
+            lat: query.lat,
+            lon: query.lon,
+          });
+          return;
+        } else if (query.city) {
+          getCitiesCoords(query.city).then(cities => {
+            if (!cities) {
+              return;
+            }
+
+            let minDistance = Infinity;
+            let indexClosest = null;
+            cities.forEach((c, index) => {
+              const distance = Math.sqrt(
+                Math.pow(userCorrds.lat - c.lat, 2) +
+                  Math.pow(userCorrds.lon - c.lon, 2),
+              );
+
+              if (distance < minDistance) {
+                minDistance = distance;
+                indexClosest = index;
+              }
+            });
+            setCoords({
+              lat: cities[indexClosest].lat,
+              lon: cities[indexClosest].lon,
+            });
+          });
+          return;
+        }
+        return;
+      } else if (userCorrds) {
+        setCoords({
+          lat: userCorrds.lat,
+          lon: userCorrds.lon,
+        });
+      }
     }
+
+    fetchData();
 
     // flushSync(() => {
     //   setCoords({

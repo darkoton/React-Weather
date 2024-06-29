@@ -12,7 +12,8 @@ export default function SearchInput({
 }) {
   const [selectIndex, setSelectIndex] = useState(0);
   const [focus, setFocus] = useState(false);
-  let initRef = useRef(false);
+  const inputRef = useRef(null);
+  const initRef = useRef(false);
 
   useEffect(() => {
     if (!initRef.current) {
@@ -33,6 +34,8 @@ export default function SearchInput({
         }
       } else if (event.code == 'Enter') {
         onSelect(result[selectIndex]);
+        inputRef.current.blur();
+        onBlur();
       }
     }
 
@@ -60,6 +63,7 @@ export default function SearchInput({
         className="search__input"
         onFocus={() => setFocus(true)}
         onBlur={onBlur}
+        ref={inputRef}
       />
       {focus && !!result.length && (
         <div className="search__result-list">
