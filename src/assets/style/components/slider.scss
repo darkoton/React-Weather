@@ -1,0 +1,43 @@
+.slider {
+  @apply flex gap-x-4 overflow-auto pb-5;
+  @include scrollbars(5px, #4a4953, #2c2b35, 10px);
+
+  &::part(container) {
+    @include adaptiv-value(padding-bottom, 20, 10, 1);
+  }
+  &__slide {
+    width: 100%;
+    max-width: 110px;
+  }
+}
+
+.slide-card {
+  @apply flex w-full flex-col  items-center rounded-xl py-2 px-4;
+  max-width: 110px;
+  &__time,
+  &__day {
+    @apply text-xl mb-2;
+  }
+
+  &__date {
+    @apply mb-3;
+    color: #667a8c;
+  }
+
+  &__temperature {
+    @apply text-4xl mb-1;
+  }
+
+  &__icon {
+    max-width: 40px;
+    max-height: 40px;
+  }
+
+  @media (any-hover: hover) {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      background: rgba(197, 197, 197, 0.3);
+    }
+  }
+}

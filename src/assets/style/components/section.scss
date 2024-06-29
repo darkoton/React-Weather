@@ -1,0 +1,41 @@
+.section {
+  @apply bg-black bg-opacity-50 w-full p-5 rounded-xl;
+
+  &__title {
+    @apply flex items-center text-xl gap-x-2 mb-7;
+    color: #667a8c;
+    &.line {
+      @apply pb-1 relative;
+
+      &::after {
+        content: "";
+        @apply absolute bottom-0 left-0 w-full;
+        background-color: #393b44;
+        height: 2px;
+      }
+    }
+  }
+
+  &__icon {
+    @apply text-4xl flex items-center;
+  }
+
+  &__body {
+    @apply flex flex-wrap-reverse justify-between;
+  }
+
+  & .wind-widgets {
+    @apply flex flex-col gap-y-3;
+  }
+
+  &__line {
+    @apply w-full;
+    height: 1px;
+    background: #667a8c;
+  }
+
+  &__left,
+  &__right {
+    @apply flex flex-col items-center;
+  }
+}

@@ -1,0 +1,18 @@
+.wind-widget {
+  @apply flex items-center justify-between gap-x-2;
+
+  &__right {
+    @apply flex flex-col;
+  }
+  &__value {
+    @apply text-5xl;
+  }
+  &__measurement,
+  &__title {
+    @apply text-xl;
+  }
+
+  &__measurement {
+    color: #667a8c;
+  }
+}

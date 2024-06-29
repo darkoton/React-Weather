@@ -1,0 +1,39 @@
+.card {
+  @apply flex-auto rounded-xl flex-col items-center;
+  @include adaptiv-indent(padding, 0, 0, 32, 15, 1);
+
+  background: rgba(0, 0, 0, 0.5);
+  @include adaptiv-value(padding-top, 80, 20, 1);
+  @include adaptiv-value(padding-bottom, 40, 10, 1);
+
+  &__info {
+    @apply flex flex-col items-center text-center;
+    @include adaptiv-value(margin-bottom, 50, 30, 1);
+  }
+
+  &__temperature {
+    @apply flex items-center justify-center gap-x-2;
+    @include adaptiv-value(font-size, 80, 50, 1);
+    @include adaptiv-value(margin-bottom, 40, 20, 1);
+  }
+
+  &__icon {
+    @include adaptiv-value(width, 65, 40, 1);
+  }
+  &__status {
+    @include adaptiv-value(font-size, 30, 25, 1);
+    @include adaptiv-value(margin-bottom, 40, 25, 1);
+  }
+
+  &__advice {
+    @apply text-base;
+  }
+
+  &__widgets {
+    @apply flex flex-wrap gap-4 justify-center;
+  }
+
+  &__empty {
+    @apply text-center h-full text-5xl flex items-center;
+  }
+}

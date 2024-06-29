@@ -1,0 +1,20 @@
+{
+  "01d": "./icons/white/svg/clear.svg",
+  "02d": "./icons/white/svg/mostlysunny.svg",
+  "03d": "./icons/white/svg/mostlycloudy.svg",
+  "04d": "./icons/white/svg/cloudy.svg",
+  "09d": "./icons/white/svg/rain.svg",
+  "10d": "./icons/white/svg/chancerain.svg",
+  "11d": "./icons/white/svg/tstorms.svg",
+  "13d": "./icons/white/svg/snow.svg",
+  "50d": "./icons/white/svg/fog.svg",
+  "01n": "./icons/white/svg/nt_clear.svg",
+  "02n": "./icons/white/svg/nt_mostlysunny.svg",
+  "03n": "./icons/white/svg/nt_mostlycloudy.svg",
+  "04n": "./icons/white/svg/nt_cloudy.svg",
+  "09n": "./icons/white/svg/nt_rain.svg",
+  "10n": "./icons/white/svg/nt_chancerain.svg",
+  "11n": "./icons/white/svg/nt_tstorms.svg",
+  "13n": "./icons/white/svg/nt_snow.svg",
+  "50n": "./icons/white/svg/nt_fog.svg"
+}

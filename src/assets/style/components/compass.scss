@@ -1,0 +1,63 @@
+.compass {
+  @apply rounded-full flex items-center justify-center;
+  width: 130px;
+  height: 130px;
+  border: 1px solid #777;
+  position: relative;
+
+  &__layer {
+    @apply w-full h-full rounded-full flex items-center justify-center;
+  }
+
+  &__layer-1 {
+    width: 78%;
+    height: 78%;
+    border: 1px solid #777;
+  }
+
+  &__layer-2 {
+    width: 95%;
+    height: 95%;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='none' stroke='%23777' stroke-width='10' stroke-dasharray='2 1'/></svg>");
+    background-size: cover;
+  }
+
+  &__direction {
+    color: #dddddd;
+    position: absolute;
+  }
+
+  &__west {
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+  }
+  &__east {
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+  }
+  &__north {
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &__south {
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__arrow {
+    height: 100%;
+    width: 12px;
+    transform-origin: center;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0s;
+
+    img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

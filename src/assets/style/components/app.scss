@@ -1,0 +1,42 @@
+.app {
+  @apply flex flex-auto;
+  @include adaptiv-value(padding, 20, 0, 1);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &__container {
+    @apply flex;
+  }
+
+  &__body {
+    @apply w-full bg-black bg-opacity-60 rounded-2xl flex gap-5;
+
+    @include adaptiv-indent(padding, 28, 12, 32, 15, 1);
+  }
+
+  &__left {
+    @apply w-full flex flex-col gap-y-4;
+    max-width: 42%;
+  }
+  &__right {
+    @apply flex-auto w-full flex flex-col gap-y-4;
+    max-width: 58%;
+  }
+
+  &__group {
+    @apply w-full flex gap-5;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(315px, 1fr));
+  }
+
+  @media (max-width: 870px) {
+    &__body {
+      @apply flex-col;
+    }
+
+    &__left,
+    &__right {
+      @apply max-w-full;
+    }
+  }
+}

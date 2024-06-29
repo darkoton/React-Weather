@@ -1,0 +1,33 @@
+//< " ПОДКЛЮЧАЕМ ФАЙЛ С ШРИФТАМИ " >=============================================================================================================>//
+
+// 01
+@font-face {
+  font-family: Ubuntu;
+  src: url("@/assets/fonts/Ubuntu-Regular.ttf") format("TrueType");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Ubuntu;
+  src: url("@/assets/fonts/Ubuntu-Medium.ttf") format("TrueType");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Ubuntu;
+  src: url("@/assets/fonts/Ubuntu-Bold.ttf") format("TrueType");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Ubuntu;
+  src: url("@/assets/fonts/Ubuntu-Light.ttf") format("TrueType");
+  font-weight: 300;
+  font-style: normal;
+}
+// 02
+
+// 03

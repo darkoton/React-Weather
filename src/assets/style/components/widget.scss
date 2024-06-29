@@ -1,0 +1,28 @@
+.widget {
+  @apply flex-auto flex flex-col bg-black bg-opacity-50 rounded-2xl;
+  @include adaptiv-value(padding, 20, 10, 1);
+
+  &__title {
+    @apply text-xl flex items-center mb-2 gap-x-1;
+    color: #70869a;
+  }
+
+  &__icon {
+    @apply text-3xl;
+  }
+
+  &__value {
+    @apply gap-y-0.5 flex flex-col flex-auto mb-4;
+
+    &-main {
+      @apply text-5xl;
+    }
+    &-sub {
+      @apply text-2xl leading-5;
+    }
+  }
+
+  &__text {
+    @apply font-light text-sm leading-4;
+  }
+}
