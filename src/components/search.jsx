@@ -10,6 +10,7 @@ export default function SearchInput({
   onChange,
   onSelect,
 }) {
+  console.log(result);
   const [selectIndex, setSelectIndex] = useState(0);
   const [focus, setFocus] = useState(false);
   const inputRef = useRef(null);
@@ -65,7 +66,7 @@ export default function SearchInput({
         onBlur={onBlur}
         ref={inputRef}
       />
-      {focus && !!result.length && (
+      {focus && result && !!result.length && (
         <div className="search__result-list">
           {
             <ul className="search__result-list-body">
